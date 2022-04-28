@@ -1,6 +1,9 @@
 {
   "dependencies": {
     "axios": "^0.27.0",
-    "cheerio": "^1.0.0-rc.10"
+    "cheerio": "^1.0.0-rc.10",
+    "file-saver": "^2.0.5",
+    "jsdom": "^19.0.0",
+    "xlsx": "^0.18.5"
   }
 }

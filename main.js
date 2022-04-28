@@ -1,6 +1,6 @@
 // const axios = require("axios");
 // const cheerio = require("cheerio");
-import * as cheerio from "cheerio";
+// import * as cheerio from "cheerio";
 
 document.getElementById("excelDownload").addEventListener("click", exportExcel);
 
