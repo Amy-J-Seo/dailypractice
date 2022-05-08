@@ -1,33 +1,17 @@
 function migratoryBirds(arr) {
-  // Write your code here
-  const watchedObj = {};
+  let largest = 1;
+  let counter = largest;
+  let type = 0;
+  arr.sort();
 
-  const uniqueArr = [...new Set(arr)];
   for (let i = 0; i < arr.length; i++) {
-    watchedObj[arr[i]] = 0;
-  }
-  for (let i = 0; i < arr.length; i++) {
-    Object.entries(uniqueArr).forEach(([key, value]) => {
-      console.log(`${key}: ${value}`);
-      if (arr[i] == value) {
-        watchedObj[arr[i]]++;
-      }
-    });
-  }
-  console.log("result", watchedObj);
-  let valArr = [];
-  Object.entries(watchedObj).forEach(([key, value]) => {
-    valArr.push(value);
-  });
-  valArr.sort();
-  let item = valArr[valArr.length - 1];
-  console.log(Object.keys(valArr).find((key) => valArr[key] === item));
-  console.log("arr>???", valArr);
-  return Object.keys(watchedObj).find((key) => {
-    if (watchedObj[key] === item) {
-      return key;
+    largest = arr.lastIndexOf(arr[i]) - arr.indexOf(arr[i]) + 1;
+    if (largest > counter) {
+      counter = largest;
+      type = arr[i];
     }
-  });
+  }
+  return type;
 }
 
-migratoryBirds([1, 4, 4, 4, 5, 3]);
+console.log(migratoryBirds([1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4]));
