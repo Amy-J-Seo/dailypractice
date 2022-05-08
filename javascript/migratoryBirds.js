@@ -1,17 +1,17 @@
 function migratoryBirds(arr) {
-  let largest = 1;
-  let counter = largest;
-  let type = 0;
-  arr.sort();
+  let newArr = {};
+  const unique = [...new Set(arr)];
+  console.log(unique);
+  unique.forEach((elem) => {
+    const filterVal = arr.filter((val) => val == elem);
+    const totalVal = filterVal.length;
+    newArr[elem] = totalVal;
+    console.log(newArr);
+  });
 
-  for (let i = 0; i < arr.length; i++) {
-    largest = arr.lastIndexOf(arr[i]) - arr.indexOf(arr[i]) + 1;
-    if (largest > counter) {
-      counter = largest;
-      type = arr[i];
-    }
-  }
-  return type;
+  let result = Object.entries(newArr).sort(([, a], [, b]) => b - a);
+  let final = result[0][0];
+  return final;
 }
 
-console.log(migratoryBirds([1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4]));
+console.log(migratoryBirds([1, 4, 4, 4, 5, 3]));
